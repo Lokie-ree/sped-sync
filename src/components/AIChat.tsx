@@ -43,7 +43,7 @@ export function AIChat() {
       </div>
 
       {/* Chat Container */}
-      <div className="flex-1 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col">
+      <div className="flex-1 bg-white rounded-2xl shadow-xs border border-slate-200 flex flex-col">
         {/* Chat Messages */}
         <div className="flex-1 p-6 overflow-y-auto space-y-4">
           {chatHistory?.length ? (
@@ -111,7 +111,7 @@ export function AIChat() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Ask about IEP development, compliance, or best practices..."
-              className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
               disabled={isLoading}
             />
             <button

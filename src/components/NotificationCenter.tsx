@@ -116,7 +116,7 @@ export function NotificationCenter() {
                     onClick={() => !notification.read && handleMarkAsRead(notification._id)}
                   >
                     <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 text-lg">
+                      <div className="shrink-0 text-lg">
                         {getTypeIcon(notification.type)}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -136,7 +136,7 @@ export function NotificationCenter() {
                         </p>
                       </div>
                       {!notification.read && (
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 mt-2"></div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full shrink-0 mt-2"></div>
                       )}
                     </div>
                   </div>

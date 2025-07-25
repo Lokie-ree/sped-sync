@@ -80,7 +80,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
         {ieps?.map((iep) => (
           <div
             key={iep._id}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow cursor-pointer"
+            className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200 hover:shadow-md transition-shadow cursor-pointer"
             onClick={() => onSelectIEP(iep._id)}
           >
             <div className="flex items-start justify-between mb-4">
@@ -182,7 +182,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="text"
                     value={formData.studentName}
                     onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>
@@ -194,7 +194,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="text"
                     value={formData.studentId}
                     onChange={(e) => setFormData({ ...formData, studentId: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>
@@ -209,7 +209,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="text"
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>
@@ -221,7 +221,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="date"
                     value={formData.dateOfBirth}
                     onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>
@@ -235,7 +235,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                   type="text"
                   value={formData.disability}
                   onChange={(e) => setFormData({ ...formData, disability: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                   placeholder="e.g., Autism, Learning Disability, Speech Impairment"
                   required
                 />
@@ -250,7 +250,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="date"
                     value={formData.meetingDate}
                     onChange={(e) => setFormData({ ...formData, meetingDate: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>
@@ -262,7 +262,7 @@ export function IEPList({ onSelectIEP, selectedIEP }: IEPListProps) {
                     type="date"
                     value={formData.annualReviewDate}
                     onChange={(e) => setFormData({ ...formData, annualReviewDate: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
                     required
                   />
                 </div>

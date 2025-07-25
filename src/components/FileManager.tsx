@@ -161,7 +161,7 @@ export function FileManager() {
         {filteredAttachments.map((attachment) => (
           <div
             key={attachment._id}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
+            className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200 hover:shadow-md transition-shadow"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center space-x-3">
