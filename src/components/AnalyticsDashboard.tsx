@@ -52,7 +52,7 @@ export function AnalyticsDashboard() {
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-4 py-2 border border-slate-200 rounded-lg focus:border-blue-500 outline-none"
+            className="px-4 py-2 border border-slate-200 rounded-lg focus:border-blue-500 outline-hidden"
           >
             {timeRanges.map((range) => (
               <option key={range.value} value={range.value}>
@@ -81,7 +81,7 @@ export function AnalyticsDashboard() {
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Total IEPs</p>
@@ -93,7 +93,7 @@ export function AnalyticsDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Active IEPs</p>
@@ -105,7 +105,7 @@ export function AnalyticsDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Goal Completion</p>
@@ -117,7 +117,7 @@ export function AnalyticsDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Compliance Rate</p>
@@ -132,7 +132,7 @@ export function AnalyticsDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Status Distribution */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900 mb-4">IEP Status Distribution</h3>
           <div className="space-y-3">
             {analytics.statusDistribution.map((item) => (
@@ -159,7 +159,7 @@ export function AnalyticsDashboard() {
         </div>
 
         {/* Disability Distribution */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900 mb-4">Disability Categories</h3>
           <div className="space-y-3">
             {analytics.disabilityDistribution.slice(0, 5).map((item) => (
@@ -180,7 +180,7 @@ export function AnalyticsDashboard() {
         </div>
 
         {/* Compliance Alerts */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900 mb-4">Compliance Overview</h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between p-4 bg-red-50 rounded-xl">
@@ -216,7 +216,7 @@ export function AnalyticsDashboard() {
         </div>
 
         {/* Service Distribution */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900 mb-4">Service Types</h3>
           <div className="space-y-3">
             {analytics.serviceDistribution.slice(0, 5).map((item) => (
@@ -230,7 +230,7 @@ export function AnalyticsDashboard() {
       </div>
 
       {/* Trends Chart */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+      <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
         <h3 className="text-xl font-semibold text-slate-900 mb-4">IEP Creation Trends</h3>
         <div className="h-64 flex items-end space-x-2">
           {analytics.trends.map((trend, index) => (
@@ -251,7 +251,7 @@ export function AnalyticsDashboard() {
       </div>
 
       {/* Recent Reports */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+      <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
         <h3 className="text-xl font-semibold text-slate-900 mb-4">Recent Reports</h3>
         <div className="space-y-3">
           {reports?.slice(0, 5).map((report) => (

@@ -16,7 +16,7 @@ export function ProgressDashboard() {
 
       {/* Progress Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Goals on Track</p>
@@ -32,7 +32,7 @@ export function ProgressDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Needs Attention</p>
@@ -48,7 +48,7 @@ export function ProgressDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Data Points</p>
@@ -64,7 +64,7 @@ export function ProgressDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-slate-600">Avg Progress</p>
@@ -86,7 +86,7 @@ export function ProgressDashboard() {
       </div>
 
       {/* Student Progress List */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200">
+      <div className="bg-white rounded-2xl shadow-xs border border-slate-200">
         <div className="p-6 border-b border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900">Student Progress Overview</h3>
         </div>

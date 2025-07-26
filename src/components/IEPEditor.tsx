@@ -174,7 +174,7 @@ function OverviewTab({ iep, isEditing, formData, setFormData }: any) {
               type="text"
               value={formData.studentName || ""}
               onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
             />
           ) : (
             <p className="text-slate-900 font-medium">{iep.studentName}</p>
@@ -200,7 +200,7 @@ function OverviewTab({ iep, isEditing, formData, setFormData }: any) {
               content: { ...formData.content, presentLevels: e.target.value }
             })}
             rows={6}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
             placeholder="Describe the student's current academic achievement and functional performance..."
           />
         ) : (
@@ -277,7 +277,7 @@ function GoalsTab({ iep, isEditing, formData, setFormData }: any) {
                     type="text"
                     value={goal.area}
                     onChange={(e) => updateGoal(index, "area", e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-hidden"
                     placeholder="e.g., Reading, Math, Communication"
                   />
                 ) : (
@@ -309,7 +309,7 @@ function GoalsTab({ iep, isEditing, formData, setFormData }: any) {
                   value={goal.goal}
                   onChange={(e) => updateGoal(index, "goal", e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-hidden"
                   placeholder="Write a specific, measurable goal..."
                 />
               ) : (
@@ -327,7 +327,7 @@ function GoalsTab({ iep, isEditing, formData, setFormData }: any) {
                     type="text"
                     value={goal.timeline}
                     onChange={(e) => updateGoal(index, "timeline", e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-hidden"
                     placeholder="e.g., By end of school year"
                   />
                 ) : (
@@ -343,7 +343,7 @@ function GoalsTab({ iep, isEditing, formData, setFormData }: any) {
                     type="text"
                     value={goal.responsibleParty}
                     onChange={(e) => updateGoal(index, "responsibleParty", e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-blue-500 outline-hidden"
                     placeholder="e.g., Special Education Teacher"
                   />
                 ) : (

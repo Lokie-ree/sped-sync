@@ -33,7 +33,7 @@ function Content() {
         {userProfile ? <Dashboard /> : <WelcomeScreen />}
       </Authenticated>
       <Unauthenticated>
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 to-slate-100">
           <div className="max-w-md w-full mx-4">
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-xl mb-4">

@@ -164,7 +164,7 @@ function DashboardOverview({ ieps }: { ieps: any[] | undefined }) {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+          <div key={index} className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600">{stat.label}</p>
@@ -179,7 +179,7 @@ function DashboardOverview({ ieps }: { ieps: any[] | undefined }) {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+      <div className="bg-white rounded-2xl p-6 shadow-xs border border-slate-200">
         <h3 className="text-xl font-semibold text-slate-900 mb-4">Recent Activity</h3>
         <div className="space-y-4">
           {ieps?.slice(0, 5).map((iep) => (
