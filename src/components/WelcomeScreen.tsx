@@ -2,6 +2,16 @@ import { useState } from "react";
 import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 export function WelcomeScreen() {
   const [formData, setFormData] = useState({
@@ -53,96 +63,113 @@ export function WelcomeScreen() {
       <div className="max-w-2xl w-full">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-2xl mb-6">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            <svg
+              className="w-10 h-10 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">Welcome to SpedSync</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-3">
+            Welcome to SpedSync
+          </h1>
           <p className="text-xl text-slate-600">
-            Let's set up your profile to get started with collaborative IEP management
+            Let's set up your profile to get started with collaborative IEP
+            management
           </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  First Name *
-                </label>
-                <input
+              <div className="space-y-2">
+                <Label htmlFor="firstName">First Name *</Label>
+                <Input
+                  id="firstName"
                   type="text"
                   value={formData.firstName}
-                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
                   placeholder="Enter your first name"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Last Name *
-                </label>
-                <input
+              <div className="space-y-2">
+                <Label htmlFor="lastName">Last Name *</Label>
+                <Input
+                  id="lastName"
                   type="text"
                   value={formData.lastName}
-                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastName: e.target.value })
+                  }
                   placeholder="Enter your last name"
                 />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Role *
-              </label>
-              <select
+            <div className="space-y-2">
+              <Label htmlFor="role">Role *</Label>
+              <Select
                 value={formData.role}
-                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
+                onValueChange={(value) =>
+                  setFormData({ ...formData, role: value })
+                }
               >
-                <option value="">Select your role</option>
-                {roles.map((role) => (
-                  <option key={role.value} value={role.value}>
-                    {role.label}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your role" />
+                </SelectTrigger>
+                <SelectContent>
+                  {roles.map((role) => (
+                    <SelectItem key={role.value} value={role.value}>
+                      {role.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Organization
-              </label>
-              <input
+            <div className="space-y-2">
+              <Label htmlFor="organization">Organization</Label>
+              <Input
+                id="organization"
                 type="text"
                 value={formData.organization}
-                onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
+                onChange={(e) =>
+                  setFormData({ ...formData, organization: e.target.value })
+                }
                 placeholder="School district, organization, etc."
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Specialization
-              </label>
-              <input
+            <div className="space-y-2">
+              <Label htmlFor="specialization">Specialization</Label>
+              <Input
+                id="specialization"
                 type="text"
                 value={formData.specialization}
-                onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-hidden transition-all"
+                onChange={(e) =>
+                  setFormData({ ...formData, specialization: e.target.value })
+                }
                 placeholder="e.g., Autism, Learning Disabilities, Speech Therapy"
               />
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full"
+              size="lg"
             >
               {isSubmitting ? "Creating Profile..." : "Complete Setup"}
-            </button>
+            </Button>
           </form>
         </div>
       </div>

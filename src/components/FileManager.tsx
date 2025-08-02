@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import { useQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 
 export function FileManager() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -22,7 +24,9 @@ export function FileManager() {
     { value: "other", label: "Other", icon: "📎" },
   ];
 
-  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
@@ -61,7 +65,7 @@ export function FileManager() {
       });
 
       toast.success("File uploaded successfully!");
-      
+
       // Reset file input
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
@@ -84,9 +88,11 @@ export function FileManager() {
     }
   };
 
-  const filteredAttachments = attachments?.filter(
-    (attachment) => selectedCategory === "all" || attachment.category === selectedCategory
-  ) || [];
+  const filteredAttachments =
+    attachments?.filter(
+      (attachment) =>
+        selectedCategory === "all" || attachment.category === selectedCategory
+    ) || [];
 
   const formatFileSize = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -100,7 +106,8 @@ export function FileManager() {
     if (fileType.includes("image")) return "🖼️";
     if (fileType.includes("pdf")) return "📄";
     if (fileType.includes("word")) return "📝";
-    if (fileType.includes("excel") || fileType.includes("spreadsheet")) return "📊";
+    if (fileType.includes("excel") || fileType.includes("spreadsheet"))
+      return "📊";
     return "📎";
   };
 
@@ -121,38 +128,47 @@ export function FileManager() {
             className="hidden"
             accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif"
           />
-          <button
+          <Button
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
-            className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-xl transition-colors flex items-center space-x-2"
+            className="flex items-center space-x-2"
           >
             {isUploading ? (
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
             ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                />
               </svg>
             )}
             <span>{isUploading ? "Uploading..." : "Upload File"}</span>
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Category Filter */}
       <div className="flex space-x-2 overflow-x-auto pb-2">
         {categories.map((category) => (
-          <button
+          <Button
             key={category.value}
+            variant={
+              selectedCategory === category.value ? "default" : "outline"
+            }
             onClick={() => setSelectedCategory(category.value)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl whitespace-nowrap transition-colors ${
-              selectedCategory === category.value
-                ? "bg-blue-100 text-blue-700 border border-blue-200"
-                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-            }`}
+            className="flex items-center space-x-2 whitespace-nowrap"
           >
             <span>{category.icon}</span>
             <span className="font-medium">{category.label}</span>
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -172,9 +188,9 @@ export function FileManager() {
                   <h3 className="font-semibold text-slate-900 truncate">
                     {attachment.fileName}
                   </h3>
-                  <p className="text-sm text-slate-600 capitalize">
+                  <Badge variant="secondary" className="capitalize">
                     {attachment.category}
-                  </p>
+                  </Badge>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -185,8 +201,18 @@ export function FileManager() {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700 transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
                     </svg>
                   </a>
                 )}
@@ -194,8 +220,18 @@ export function FileManager() {
                   onClick={() => handleDeleteFile(attachment._id)}
                   className="text-red-600 hover:text-red-700 transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
                   </svg>
                 </button>
               </div>
@@ -208,7 +244,9 @@ export function FileManager() {
               </div>
               <div className="flex justify-between">
                 <span>Uploaded:</span>
-                <span>{new Date(attachment._creationTime).toLocaleDateString()}</span>
+                <span>
+                  {new Date(attachment._creationTime).toLocaleDateString()}
+                </span>
               </div>
             </div>
 
@@ -226,23 +264,31 @@ export function FileManager() {
       {filteredAttachments.length === 0 && (
         <div className="text-center py-12 bg-white rounded-2xl border border-slate-200">
           <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            <svg
+              className="w-8 h-8 text-slate-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+              />
             </svg>
           </div>
-          <h3 className="text-lg font-medium text-slate-900 mb-2">No Files Found</h3>
+          <h3 className="text-lg font-medium text-slate-900 mb-2">
+            No Files Found
+          </h3>
           <p className="text-slate-600 mb-4">
-            {selectedCategory === "all" 
+            {selectedCategory === "all"
               ? "Upload your first file to get started"
-              : `No files in the ${categories.find(c => c.value === selectedCategory)?.label.toLowerCase()} category`
-            }
+              : `No files in the ${categories.find((c) => c.value === selectedCategory)?.label.toLowerCase()} category`}
           </p>
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition-colors"
-          >
+          <Button onClick={() => fileInputRef.current?.click()}>
             Upload File
-          </button>
+          </Button>
         </div>
       )}
     </div>
