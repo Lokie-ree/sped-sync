@@ -24,7 +24,7 @@ function Content() {
 
   if (loggedInUser === undefined) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
@@ -36,12 +36,18 @@ function Content() {
         {userProfile ? <Dashboard /> : <WelcomeScreen />}
       </Authenticated>
       <Unauthenticated>
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 to-slate-100">
-          <div className="max-w-md w-full mx-4">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-xl mb-4">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30 p-4 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-md w-full mx-auto relative z-10">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl mb-4 shadow-xl">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -54,14 +60,14 @@ function Content() {
                   />
                 </svg>
               </div>
-              <h1 className="text-4xl font-bold text-slate-900 mb-2">
+              <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-2">
                 SpedSync
               </h1>
-              <p className="text-lg text-slate-600 mb-6">
+              <p className="text-base sm:text-lg text-slate-600">
                 Transform special education through collaborative IEP management
               </p>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 border border-white/20">
               <SignInForm />
             </div>
           </div>
